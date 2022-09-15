@@ -5,7 +5,7 @@ import {formatCurrency} from "../../../utils";
 import {useData} from "../../../utils";
 import {useEffect, useState} from "react";
 import {CardItems} from "./CardItem";
-import {Box} from "@chakra-ui/react";
+import {Box, Button} from "@chakra-ui/react";
 
 
 
@@ -41,11 +41,14 @@ export function ShoppingCart({ isOpen }: ShoppingCartProps) {
                                     return total + (item?.price || 0) * cartItem.quantity
                                 }, 0)
                             )}
+                            <Button colorScheme='red' variant='outline'>
+                                Lancer votre paiement du commande
+                            </Button>
                         </div>
                     </Stack>
                 </Offcanvas.Body>
                 <Offcanvas.Header closeButton >
-                    <Offcanvas.Title>Your Bags Items</Offcanvas.Title>
+                    <Offcanvas.Title>Votre panier</Offcanvas.Title>
                 </Offcanvas.Header>
             </Offcanvas>
         </Box>
