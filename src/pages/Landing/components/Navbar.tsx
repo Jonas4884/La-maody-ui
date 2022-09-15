@@ -21,12 +21,15 @@ import {
   ChevronDownIcon,
   ChevronRightIcon,
 } from "@chakra-ui/icons";
+import {ShopButton} from "./DrawerButton/ShopButton";
+import {useShoppingCart} from "../../../utils";
+
 
 export default function Navbar() {
   const { isOpen, onToggle } = useDisclosure();
-
+  const {closeCart} = useShoppingCart();
   return (
-      <Box>
+      <Box position={"fixed"} zIndex={"sticky"} width={"full"}>
         <Flex
             bg={useColorModeValue('white', 'gray.800')}
             color={useColorModeValue('gray.600', 'white')}
@@ -53,9 +56,9 @@ export default function Navbar() {
           <Flex flex={{ base: 1 }} justify={{ base: 'center', md: 'start' }}>
             <Text
                 textAlign={useBreakpointValue({ base: 'center', md: 'left' })}
-                fontFamily={'heading'}
+                fontFamily={'fantasy'}
                 color={useColorModeValue('gray.800', 'white')}>
-              Logo
+                La-Maody
             </Text>
 
             <Flex display={{ base: 'none', md: 'flex' }} ml={10}>
@@ -68,14 +71,7 @@ export default function Navbar() {
               justify={'flex-end'}
               direction={'row'}
               spacing={6}>
-            <Button
-                as={'a'}
-                fontSize={'sm'}
-                fontWeight={400}
-                variant={'link'}
-                href={'#'}>
-              Sign In
-            </Button>
+            <ShopButton/>
             <Button
                 display={{ base: 'none', md: 'inline-flex' }}
                 fontSize={'sm'}
@@ -251,41 +247,27 @@ interface NavItem {
 
 const NAV_ITEMS: Array<NavItem> = [
   {
-    label: 'Inspiration',
+    label: 'home',
+    href:"#"
+  },
+  {
+    label: 'Notre boutique',
     children: [
       {
-        label: 'Explore Design Work',
-        subLabel: 'Trending Design to inspire you',
+        label: 'Toutes catégories',
+        subLabel: 'Vous pouvez consulter notre magasin ici',
         href: '#',
       },
       {
-        label: 'New & Noteworthy',
-        subLabel: 'Up-and-coming Designers',
+        label: 'Découverte',
+        subLabel: 'Certains de notre client donne son avis en suggestion une proposition des nouvelles modes',
         href: '#',
       },
     ],
+
   },
   {
-    label: 'Find Work',
-    children: [
-      {
-        label: 'Job Board',
-        subLabel: 'Find your dream design job',
-        href: '#',
-      },
-      {
-        label: 'Freelance Projects',
-        subLabel: 'An exclusive list for contract work',
-        href: '#',
-      },
-    ],
-  },
-  {
-    label: 'Learn Design',
-    href: '#',
-  },
-  {
-    label: 'Hire Designers',
+    label: 'A propos',
     href: '#',
   },
 ];

@@ -8,16 +8,20 @@ import { DishEdit, DishList } from './pages/Admin/components/dish';
 import { OrderEdit } from './pages/Admin/components/order/OrderEdit';
 import { OrderList } from './pages/Admin/components/order';
 import { CategoryEdit, CategoryList } from './pages/Admin/components/category';
+import {ShoppingCartProvider} from "./utils/context/shopping";
+import {Shopping} from "./pages/Shopping";
 
 export const App = () => {
   return (
     <Router>
       <HackWebProviders>
+        <ShoppingCartProvider>
         <ChakraProvider theme={theme}>
           <Routes>
 
             <Route index element={<Navigate to="/landing" />} />
             <Route path="/landing" element={<Landing />} />
+            <Route path="/shop" element={<Shopping />} />
 
             <Route path="/admin" element={<Admin />}>
               <Route index element={<Navigate to="dishes" />} />
@@ -37,6 +41,7 @@ export const App = () => {
 
           </Routes>
         </ChakraProvider>
+        </ShoppingCartProvider>
       </HackWebProviders>
     </Router>
   );

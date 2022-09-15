@@ -20,7 +20,10 @@ export default function FollowButton(props: ButtonProps) {
                 _focus={{
                     bg: 'blue.500',
                 }}>
-                Les top 5 des commandes de notre client
+                <a href={"#top5item"}>
+                    Les top 5 des commandes de notre client
+                </a>
+
             </Button>
         </Flex>
     );

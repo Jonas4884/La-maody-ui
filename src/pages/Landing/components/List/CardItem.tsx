@@ -1,9 +1,12 @@
 import { Center, useColorModeValue, Stack, Heading, Box, Image, Text } from '@chakra-ui/react';
 import React from 'react';
+import {item} from "../../../../types/proptypes/item/item";
+import {formatCurrency} from "../../../../utils";
+import {ShopButton} from "./ActionButton";
 
-const STATIC_IMAGE = 'https://th.bing.com/th/id/R.d1408c82b62294f0ab44ed2b4cc172f7?rik=jBirlT4ETc3MLA&pid=ImgRaw&r=0';
+const STATIC_IMAGE = 'https://th.bing.com/th/id/R.ac730cf7f9f5a5b84e732b80e600d24e?rik=%2bE5ijXu%2b%2byT44g&pid=ImgRaw&r=0';
 
-export const CardItem = () => (
+export const CardItem = (props :item) => (
   <Center py={10} ml={7} width={'300px'}>
     <Box
       role={'group'}
@@ -50,17 +53,17 @@ export const CardItem = () => (
       </Box>
       <Stack pt={8} align={'center'}>
         <Text color={'gray.500'} fontSize={'sm'} textTransform={'uppercase'}>
-          Entrée
+            {props.category}
         </Text>
         <Heading fontSize={'xl'} fontFamily={'body'} fontWeight={500}>
-          Riz cantonnais
+              {props.name}
         </Heading>
         <Stack direction={'row'} align={'center'}>
           <Text fontWeight={500} fontSize={'lg'}>
-            Ar 5000
+              {formatCurrency(props.price)}
           </Text>
-          <OrderItem />
         </Stack>
+          <ShopButton id={props.id} />
       </Stack>
     </Box>
   </Center>

@@ -94,7 +94,7 @@ export default function Features() {
                             iconBg={useColorModeValue('purple.100', 'purple.900')}
                             text={"Une achat à +3 articles toutes l'année"}
                         />
-                        <button type="button" className="btn btn-outline-primary"><a href={"#card"}> Les top 5 des commandes de notre clients</a></button>
+                        <button type="button" className="btn btn-outline-primary"><a href={"#card"}> Les top 5 des commandes de nos clients</a></button>
                     </Stack>
 
                 </Stack>
